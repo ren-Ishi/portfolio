@@ -329,4 +329,9 @@ p.threebox{
         -ms-writing-mode: tb-rl;
         writing-mode: vertical-rl;
     }
+
+    .webArea p{
+        padding: 10px 0;
+        width: 300px;
+    }
 }
