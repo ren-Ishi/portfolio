@@ -332,6 +332,6 @@ p.threebox{
 
     .webArea p{
         padding: 10px 0;
-        width: 300px;
+        width: 100%;
     }
 }
