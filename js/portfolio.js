@@ -9,3 +9,13 @@ $('a[href*="#"]').click(function () {
     $('body,html').animate({scrollTop: pos}, 500);
     return false;
   });
+
+  $(function(){
+    $("#box img").click(function() {
+      $("#graydisplay").html($(this).prop('outerHTML'));
+      $("#graydisplay").fadeIn(200);
+    });
+    $("#graydisplay, #graydisplay img").click(function() {
+      $("#graydisplay").fadeOut(200);
+    });
+  });

@@ -43,7 +43,7 @@ body {
     border-radius: 50%;
     background: #c92e2e;
     mix-blend-mode: difference;
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
 }
 
@@ -54,6 +54,7 @@ header {
     height: 100px;
     width: 100%;
     padding: 10px;
+    z-index: 1;
 }
 
 header ul {
@@ -69,7 +70,7 @@ header ul {
 
 header li {
     margin-right: 20px;
-    width: 200px;
+    width: 200px;   
 }
 
 header a {
@@ -155,6 +156,88 @@ footer p {
     font-size: 16px;
 }
 
+#graydisplay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+}
+#graydisplay img {
+    z-index: 2;
+  position: absolute;
+  top: 100;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.textbox{
+    margin: 9px;
+}
+
+.itembox{
+    border-radius: 5%;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+}
+
+.itembox:hover{
+    opacity: 0.7;
+}
+
+.itembox01{
+    width: 356px;
+    height: 270px;
+}
+
+.item01 img{
+    width: 356px;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0; 
+}
+
+.itembox02{
+    width: 230px;
+    height: 300px;
+}
+
+.item02 img{
+    width: 230px;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0; 
+}
+
+.itembox03{
+    width: 356px;
+    height: 200px;
+}
+
+.itembox03 img{
+    width: 356px;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0; 
+}
+
 @media screen and (max-width: 768px) {
     #cursor {
         display: none;
@@ -167,5 +250,16 @@ footer p {
 
     header li a::after {
         width: 40px;
+    }
+
+    .wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 10px;
+    display:contents;
+    }
+    
+    .item01,.item02 img{
+        width: 100%;
     }
 }
