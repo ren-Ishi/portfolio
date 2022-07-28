@@ -211,12 +211,26 @@ footer p {
     margin-bottom: 40px;
 }
 
+.webArea img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.webArea img:hover{
+    opacity: 0.6;
+}
+
 .textbox{
     margin: 9px;
 }
 
-.textbox h3{
+h3{
     padding: 10px 0;
+}
+
+.webArea p{
+    padding: 10px 0;
+    width: 740px;
 }
 
 .textbox p{

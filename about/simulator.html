@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NE211021＿私の三原色メーカー</title>
+  <link rel="stylesheet" href="all.css">
+</head>
+<body>
+  <div class="harfL SP">
+    <div class="harf">
+          <h1 class="L5">私の三原色メーカー</h1>
+          <p class="sub">感覚でお楽しみください</p>
+    </div>
+    <div class="harf U">
+      <div class="slide">
+        <p>左</p>
+        <input type="range" value="0" id="red2" min="0" max="255" step="1" oninput="color_change()" class="R">
+        <input type="range" value="255" id="green2" min="0" max="255" step="1" oninput="color_change()" class="G">
+        <input type="range" value="0" id="blue2" min="0" max="255" step="1" oninput="color_change()" class="B">
+      </div>
+      <div class="slide">
+        <p>上</p>
+        <input type="range" value="255" id="red" min="0" max="255" step="1"  oninput="color_change()" class="R">
+        <input type="range" value="0" id="green" min="0" max="255" step="1" oninput="color_change()" class="G">
+        <input type="range" value="0" id="blue" min="0" max="255" step="1" oninput="color_change()" class="B">
+      </div>
+      <div class="slide">
+        <p>右</p>
+        <input type="range" value="0" id="red3" min="0" max="255" step="1" oninput="color_change()" class="R">
+        <input type="range" value="0" id="green3" min="0" max="255" step="1" oninput="color_change()" class="G">
+        <input type="range" value="255" id="blue3" min="0" max="255" step="1" oninput="color_change()" class="B">
+      </div>
+      <a class="Col" href="../index.html">前ページへ</a>
+    </div>
+  </div>
+<div id="color"></div>
+<script>
+  function color_change() {
+    var red = document.getElementById("red").value;
+    var green = document.getElementById("green").value;
+    var blue = document.getElementById("blue").value;
+    var sample_area = document.getElementById("color");
+    sample_area.style.backgroundColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+  }
+  const WIDTH = 700;
+  const HEIGHT = 700;
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = HEIGHT;
+  const context = canvas.getContext('2d');
+  document.body.appendChild(canvas);
+  class Circle1 {
+    constructor(x, y, radius) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.r = document.getElementById("red").value;
+      this.g = document.getElementById("green").value;
+      this.b = document.getElementById("blue").value;
+
+      this.velocity = 2;
+    }
+    update() {
+      this.r = document.getElementById("red").value;
+      this.g = document.getElementById("green").value;
+      this.b = document.getElementById("blue").value;
+    }
+    render(context) {
+      context.beginPath();
+      context.fillStyle = 'rgb(' + this.r + ',' + this.g + ',' + this.b + ')';
+      context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      context.fill();
+    }
+  }
+  class Circle2 {
+    constructor(x, y, radius) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.r = document.getElementById("red2").value;
+      this.g = document.getElementById("green2").value;
+      this.b = document.getElementById("blue2").value;
+
+      this.velocity = 2;
+    }
+    update() {
+      this.r = document.getElementById("red2").value;
+      this.g = document.getElementById("green2").value;
+      this.b = document.getElementById("blue2").value;
+    }
+    render(context) {
+      context.beginPath();
+      context.fillStyle = 'rgb(' + this.r + ',' + this.g + ',' + this.b + ')';
+      context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      context.fill();
+    }
+  }
+  class Circle3 {
+    constructor(x, y, radius) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.r = document.getElementById("red3").value;
+      this.g = document.getElementById("green3").value;
+      this.b = document.getElementById("blue3").value;
+
+      this.velocity = 2;
+    }
+    update() {
+      this.r = document.getElementById("red3").value;
+      this.g = document.getElementById("green3").value;
+      this.b = document.getElementById("blue3").value;
+    }
+    render(context) {
+      context.beginPath();
+      context.fillStyle = 'rgb(' + this.r + ',' + this.g + ',' + this.b + ')';
+      context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      context.globalCompositeOperation = "lighter";
+      context.fill();
+    }
+  }
+  const objects = [];
+
+  objects.push(new Circle1(360, 240, 200));
+  objects.push(new Circle2(250, 460, 200));
+  objects.push(new Circle3(470, 460, 200));
+
+  function loop(timestamp) {
+    context.clearRect(0, 0, WIDTH, HEIGHT);
+    objects.forEach((obj) => obj.update());
+    objects.forEach((obj) => obj.render(context));
+    window.requestAnimationFrame((ts) => loop(ts));
+  }
+  window.requestAnimationFrame((ts) => loop(ts));
+</script>
+</body>
+</html>
